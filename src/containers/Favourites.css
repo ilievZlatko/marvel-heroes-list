@@ -1,0 +1,7 @@
+.SearchField {
+	width: 400px;
+}
+
+.SearchField > div {
+	width: 100%;
+}
