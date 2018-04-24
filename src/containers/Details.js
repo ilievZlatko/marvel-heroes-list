@@ -113,8 +113,7 @@ class Details extends Component {
 											index={i + 1}
 											onClick={this.handleClick}>
 											<Icon name="dropdown" />
-											Series with{' '}
-											{this.state.character.name}:
+											Series with {character.name}:
 										</Accordion.Title>
 										<Accordion.Content
 											active={activeIndex === i + 1}>
