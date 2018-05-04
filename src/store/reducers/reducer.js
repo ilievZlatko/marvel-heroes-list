@@ -4,6 +4,7 @@ const initialState = {
 	profile: {},
 	heroes: [],
 	favourites: [],
+	character: {},
 	offset: 0,
 	loading: false
 };
@@ -82,6 +83,12 @@ const reducer = (state = initialState, action) => {
 				favourites: newFilteredFavourites
 			};
 		}
+
+		case actionTypes.GET_CURRENT_HERO:
+			return {
+				...state,
+				character: action.character
+			};
 
 		default:
 			return state;

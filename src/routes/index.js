@@ -52,7 +52,6 @@ class Routes extends Component {
 							<Details
 								auth={this.auth}
 								heroes={this.props.heroes}
-								currentHero={this.props.currentHero}
 								{...props}
 							/>
 						)

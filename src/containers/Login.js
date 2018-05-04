@@ -8,7 +8,8 @@ class Login extends Component {
 		showSignIn: true,
 		email: '',
 		password: '',
-		confirmPassword: ''
+		confirmPassword: '',
+		errorMessage: ''
 	};
 
 	switchToSignUp = () => {
@@ -38,7 +39,30 @@ class Login extends Component {
 	};
 
 	handleConfirmPassword = e => {
+		this.passwordValidationCheck(e.target.value);
 		this.setState({ confirmPassword: e.target.value });
+	};
+
+	passwordValidationCheck = password => {
+		if (password.trim().length < 8) {
+			this.setState({ errorMessage: 'Minumum password length 8 chars' });
+		} else if (!/[A-Z]/.test(password)) {
+			this.setState({
+				errorMessage: 'Password should contain uppercase letter'
+			});
+		} else if (!/[0-9]/.test(password)) {
+			this.setState({
+				errorMessage: 'Password should contain one number'
+			});
+		} else if (!/[!@#$%&]/.test(password)) {
+			console.log(!/@#\$%&/.test(password));
+			this.setState({
+				errorMessage:
+					'Password should contain one special character: "!@#$%&"'
+			});
+		} else {
+			this.setState({ errorMessage: '' });
+		}
 	};
 
 	validationCheck = () => {
@@ -114,6 +138,16 @@ class Login extends Component {
 									value={this.state.password}
 									onChange={this.handlePasswordChange}
 								/>
+								{this.state.errorMessage &&
+								!this.state.showSignIn ? (
+									<p
+										style={{
+											color: '#9f3a38',
+											padding: '0'
+										}}>
+										{this.state.errorMessage}
+									</p>
+								) : null}
 								{this.state.showSignIn ? (
 									<div>
 										<Button

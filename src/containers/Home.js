@@ -7,10 +7,9 @@ import Loading from '../components/Loading/Loading';
 
 class Home extends Component {
 	previewDetails = character => {
-		const queryString = `?hero-id=${character.id}`;
+		this.props.previewHero(character);
 		this.props.history.push({
-			pathname: '/details',
-			search: queryString
+			pathname: '/details'
 		});
 	};
 
@@ -117,7 +116,8 @@ const mapDispatchToProps = dispatch => {
 		onAddToFavourites: id => dispatch(actions.addToFavourites(id)),
 		onRemoveFromFavourites: id =>
 			dispatch(actions.removeFromFavourites(id)),
-		getHeroes: offset => dispatch(actions.getHeroes(offset))
+		getHeroes: offset => dispatch(actions.getHeroes(offset)),
+		previewHero: character => dispatch(actions.getCurrentHero(character))
 	};
 };
 

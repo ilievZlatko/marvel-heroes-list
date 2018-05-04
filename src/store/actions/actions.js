@@ -87,3 +87,10 @@ export const getHeroes = offset => {
 			});
 	};
 };
+
+export const getCurrentHero = character => {
+	return {
+		type: actionTypes.GET_CURRENT_HERO,
+		character
+	};
+};

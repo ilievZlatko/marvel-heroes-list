@@ -1,7 +1,7 @@
 import React from 'react';
 import loadingImage from '../../assets/images/loading.svg';
 
-const loading = props => {
+const Loading = props => {
 	const style = {
 		display: 'flex',
 		justifyContent: 'center',
@@ -18,4 +18,4 @@ const loading = props => {
 	);
 };
 
-export default loading;
+export default Loading;

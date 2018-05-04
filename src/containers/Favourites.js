@@ -8,10 +8,9 @@ import * as actions from '../store/actions/actions';
 
 class Favourites extends Component {
 	previewDetails = character => {
-		const queryString = `?hero-id=${character.id}`;
+		this.props.previewHero(character);
 		this.props.history.push({
-			pathname: '/details',
-			search: queryString
+			pathname: '/details'
 		});
 	};
 
@@ -24,7 +23,9 @@ class Favourites extends Component {
 						justifyContent: 'space-between',
 						alignItems: 'center'
 					}}>
-					<h2 style={{ margin: '50px 0' }}>Marvel Characters</h2>
+					<h2 style={{ margin: '50px 0' }}>
+						Your Favourite Marvel Characters
+					</h2>
 					<Search
 						className={classes.SearchField}
 						placeholder="Filter by name or description"
@@ -99,7 +100,8 @@ const mapDispatchToProps = dispatch => {
 		onRemoveFromFavourites: id =>
 			dispatch(actions.removeFromFavourites(id)),
 		onFilterFavourites: searchText =>
-			dispatch({ type: 'FILTER_FAVOURITES', searchText })
+			dispatch({ type: 'FILTER_FAVOURITES', searchText }),
+		previewHero: character => dispatch(actions.getCurrentHero(character))
 	};
 };
 

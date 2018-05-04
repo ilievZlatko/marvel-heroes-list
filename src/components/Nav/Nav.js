@@ -14,11 +14,6 @@ const Nav = () => (
 				Favourites
 			</NavLink>
 		</li>
-		<li>
-			<NavLink activeClassName={classes.active} to="/details">
-				Details
-			</NavLink>
-		</li>
 	</ul>
 );
 
