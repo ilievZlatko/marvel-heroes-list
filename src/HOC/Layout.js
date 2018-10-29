@@ -1,12 +1,11 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { Header, Container } from 'semantic-ui-react';
-import Aux from './Aux';
 import Nav from '../components/Nav/Nav';
 import UserProfile from '../components/UserProfile/UserProfile';
 
 const layout = props => {
 	return (
-		<Aux>
+		<Fragment>
 			<Header
 				style={{
 					background: '#c52d46',
@@ -25,7 +24,7 @@ const layout = props => {
 			<Container fluid style={{ marginTop: '65px', padding: '0 5%' }}>
 				{props.children}
 			</Container>
-		</Aux>
+		</Fragment>
 	);
 };
 

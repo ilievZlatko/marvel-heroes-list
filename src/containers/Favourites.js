@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Aux from '../HOC/Aux';
 import { Search, Button, Grid, Card, Image } from 'semantic-ui-react';
 import classes from './Favourites.css';
 import * as actions from '../store/actions/actions';
@@ -16,7 +15,7 @@ class Favourites extends Component {
 
 	render() {
 		return (
-			<Aux>
+			<Fragment>
 				<div
 					style={{
 						display: 'flex',
@@ -80,7 +79,7 @@ class Favourites extends Component {
 						))}
 					</Grid>
 				</div>
-			</Aux>
+			</Fragment>
 		);
 	}
 }

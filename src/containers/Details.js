@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Accordion, Card, Image, Icon, List, Grid } from 'semantic-ui-react';
 import * as actionTypes from '../store/actions/actionTypes';
 import { isEmpty } from '../utils/helperMethods';
-import Aux from '../HOC/Aux';
 
 class Details extends Component {
 	state = {
@@ -33,7 +32,7 @@ class Details extends Component {
 			<div style={{ display: 'flex', flexDirection: 'column' }}>
 				{isEmpty(this.props.character) ||
 				!this.props.heroes.length ? null : (
-					<Aux>
+					<Fragment>
 						<h2 style={{ margin: '50px 0' }}>
 							{this.props.character.name}
 						</h2>
@@ -138,7 +137,7 @@ class Details extends Component {
 								</Grid.Column>
 							))}
 						</Grid>
-					</Aux>
+					</Fragment>
 				)}
 			</div>
 		);
